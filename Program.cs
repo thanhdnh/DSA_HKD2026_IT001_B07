@@ -34,11 +34,11 @@ public class PhoneList:DictionaryBase
 
 public class BucketHash{
    private const int SIZE = 10;
-   ArrayList[] data;
+   LinkedList<string>[] data;
    public BucketHash(){
-      data = new ArrayList[SIZE];
+      data = new LinkedList<string>[4];
       for(int i=0; i<=SIZE-1; i++)
-         data[i] = new ArrayList(4);
+         data[i] = new LinkedList<string>();
    }
    public int Hash(string s){//hash function
       long tot = 0;
@@ -54,7 +54,7 @@ public class BucketHash{
    public void Insert(string item){
       int hash_value = Hash(item);
       if(!data[hash_value].Contains(item))
-         data[hash_value].Add(item);
+         data[hash_value].AddLast(item);
    }
    public void Remove(string item){
       int hash_value = Hash(item);
